@@ -1,0 +1,29 @@
+import hector.*
+import alimentos.*
+import wollok.game.*
+
+
+
+program farmvilleGame {
+
+	game.title("farmville")
+	game.height(10)
+	game.width(10)	
+	game.ground("ground.png")
+
+	game.addVisual(maiz)
+	game.addVisual(trigo)
+	game.addVisual(tomaco)
+	
+	keyboard.m().onPressDo {hector.sembrar(maiz)}
+	
+	
+	
+	
+	
+	
+	
+	
+	game.start()
+
+}
