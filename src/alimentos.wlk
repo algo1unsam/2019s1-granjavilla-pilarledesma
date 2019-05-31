@@ -38,18 +38,20 @@ class Trigo inherits Alimento{
 	
 	var property etapaEvolucion=0
 	
-	var property position= game.at(1,9)
+	var property position
 	
 	override method image() {return imagen}
 	
 	override method esSembrada() {
-		const trigo = new Trigo()
+		const trigo = new Trigo(position = hector.position())
 		hector.agregarPlanta(trigo)
+		game.addVisualIn(trigo, hector.position())
 	}
 	
 	override method esRegada() {
-		if (etapaEvolucion!=3) etapaEvolucion+=1 else if (etapaEvolucion==3) 0
-	
+		if (etapaEvolucion != 3) etapaEvolucion+=1 else if (etapaEvolucion == 3) etapaEvolucion=0
+		//remplaza imagen s/variable etapaEvolucion
+		//lista de 3 palabras que concatene wheat_ etapaEvolucion .png ? 
 		
 		}
 	
@@ -57,16 +59,24 @@ class Trigo inherits Alimento{
 
 class Tomaco inherits Alimento{
 	
-	var property position= game.at(4,7)
+	var imagen = "tomaco.png"
 	
-	override method image() { return "tomaco.png"}
+	var property position
+	
+	override method image() { return imagen}
 	
 	override method esSembrada() {
-		const tomaco = new Tomaco()
+		const tomaco = new Tomaco(position = hector.position())
 		hector.agregarPlanta(tomaco)
+		game.addVisualIn(tomaco, hector.position())
 	}
 	
 	override method esRegada() {
+		// if y != 10
+		game.removeVisual(self)
+		position = (self.position().up(1))
+		game.addVisualIn(self,position)
 		
+		//game.addVisualIn(maiz, hector.position())
 	} 
 }

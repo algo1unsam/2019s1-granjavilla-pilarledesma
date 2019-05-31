@@ -22,7 +22,7 @@ object hector {
 	}
 	
 	method regar(){
-		
+		if (plantas.any{planta => planta.position() == self.position()})
 		(plantas.find{planta => planta.position() == self.position()}).esRegada() 
 			
 		// si encuentra, regar, else tirar una excepción indicando "no tengo nada para regar"

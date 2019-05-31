@@ -19,8 +19,8 @@ program farmvilleGame {
 	const trigo = new Trigo()
 	
 	keyboard.m().onPressDo { maiz.esSembrada()}
-	keyboard.t().onPressDo { game.addVisualIn(trigo, hector.position())}
-	keyboard.o().onPressDo { game.addVisualIn(tomaco, hector.position())}
+	keyboard.t().onPressDo { trigo.esSembrada()}
+	keyboard.o().onPressDo { tomaco.esSembrada()}
 	
 	keyboard.r().onPressDo { hector.regar()}
 	
