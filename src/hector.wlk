@@ -32,7 +32,13 @@ object hector {
 		
 	}
 	
-	method vender(){}
+	method plantasParaVender() = plantas.map{planta => planta.cosechada() == 1}
 	
+	method vender(){
+		self.cobrarOro()
+		plantas.forEach{planta => planta.cosechada(0)}
+	}
+	
+	method cobrarOro() {oro = (self.plantasParaVender()).sum{planta => planta.oroQueAporta()}}
 	
 }

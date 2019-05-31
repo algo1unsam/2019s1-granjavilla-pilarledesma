@@ -17,6 +17,8 @@ class Alimento {
 	method esSembrada()
 	
 	method esCosechada() {game.removeVisual(self)}
+	
+	method oroQueAporta()
 		
 }
 
@@ -40,6 +42,8 @@ class Maiz inherits Alimento{
 		if (imagen == "corn_adult.png")
 		cosechada = 1 
 	}
+	
+	override method oroQueAporta () = 150
 }
 
 class Trigo inherits Alimento{
@@ -55,7 +59,7 @@ class Trigo inherits Alimento{
 	}
 	
 	override method esRegada() {
-		if (etapaEvolucion != 3) etapaEvolucion+=1 else if (etapaEvolucion == 3) etapaEvolucion=0
+		if (not etapaEvolucion == 3) etapaEvolucion+=1 else if (etapaEvolucion == 3) etapaEvolucion=0
 		//remplaza imagen s/variable etapaEvolucion
 		//lista de 3 palabras que concatene wheat_ etapaEvolucion .png ? 
 		
@@ -66,6 +70,7 @@ class Trigo inherits Alimento{
 		if (etapaEvolucion>=2) cosechada = 1
 	}
 	
+	override method oroQueAporta () = (etapaEvolucion - 1) * 100
 	
 }
 
@@ -92,5 +97,5 @@ class Tomaco inherits Alimento{
 		cosechada = 1
 	}
 	
-	
+	override method oroQueAporta () = 80
 }
