@@ -24,6 +24,9 @@ program farmvilleGame {
 	
 	keyboard.r().onPressDo { hector.regar()}
 	keyboard.c().onPressDo { hector.cosechar()}
+	keyboard.v().onPressDo { hector.vender()}
+	
+	
 	
 	
 	keyboard.up().onPressDo { hector.position(hector.position().up(1)) }

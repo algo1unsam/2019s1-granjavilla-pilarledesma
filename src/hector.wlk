@@ -32,7 +32,7 @@ object hector {
 		
 	}
 	
-	
+	method vender(){}
 	
 	
 }
