@@ -11,19 +11,28 @@ program farmvilleGame {
 	game.width(10)	
 	game.ground("ground.png")
 
-	game.addVisual(maiz)
-	game.addVisual(trigo)
-	game.addVisual(tomaco)
-	
-	keyboard.m().onPressDo {hector.sembrar(maiz)}
+	game.addVisual(hector)
 	
 	
+	const tomaco = new Tomaco()
+	const maiz = new Maiz()
+	const trigo = new Trigo()
+	
+	keyboard.m().onPressDo { maiz.esSembrada()}
+	keyboard.t().onPressDo { game.addVisualIn(trigo, hector.position())}
+	keyboard.o().onPressDo { game.addVisualIn(tomaco, hector.position())}
+	
+	keyboard.r().onPressDo { hector.regar()}
 	
 	
 	
-	
+	keyboard.up().onPressDo { hector.position(hector.position().up(1)) }
+	keyboard.down().onPressDo { hector.position(hector.position().down(1)) }
+	keyboard.left().onPressDo { hector.position(hector.position().left(1)) }
+	keyboard.right().onPressDo { hector.position(hector.position().right(1)) }
 	
 	
 	game.start()
 
 }
+

@@ -1,18 +1,38 @@
 import wollok.game.*
+import alimentos.*
 
 object hector {
 	
+	const plantas = []
+	
 	var property oro = 0
 	
-	var property position 
+	var property position= game.at(3,3)
 	
-	method sembrar(alimento){
-		game.addVisualIn(alimento, position) 
+	method image() = "player.png"
+	
+	method agregarPlanta(planta) {plantas.add(planta)}
+	
+	//method mismaPosicion() = plantas.any{planta => planta.position() == self.position()}
+	
+	method sembrar(){
+		
+		
+		
 	}
 	
-	method regar(){}
+	method regar(){
+		
+		(plantas.find{planta => planta.position() == self.position()}).esRegada() 
+			
+		// si encuentra, regar, else tirar una excepción indicando "no tengo nada para regar"
+			
+	}
+	
 	
 	method cosechar(){}
+	
+	
 	
 	
 }
