@@ -76,7 +76,6 @@ class Tomaco inherits Alimento{
 		game.removeVisual(self)
 		position = (self.position().up(1))
 		game.addVisualIn(self,position)
-		
-		//game.addVisualIn(maiz, hector.position())
+
 	} 
 }

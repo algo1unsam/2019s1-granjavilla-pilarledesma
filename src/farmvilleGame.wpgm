@@ -23,7 +23,7 @@ program farmvilleGame {
 	keyboard.o().onPressDo { tomaco.esSembrada()}
 	
 	keyboard.r().onPressDo { hector.regar()}
-	
+	keyboard.c().onPressDo { hector.cosechar()}
 	
 	
 	keyboard.up().onPressDo { hector.position(hector.position().up(1)) }
@@ -31,6 +31,8 @@ program farmvilleGame {
 	keyboard.left().onPressDo { hector.position(hector.position().left(1)) }
 	keyboard.right().onPressDo { hector.position(hector.position().right(1)) }
 	
+	
+	game.errorReporter(hector)
 	
 	game.start()
 
