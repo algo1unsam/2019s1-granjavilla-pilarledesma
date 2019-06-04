@@ -92,6 +92,12 @@ class Tomaco inherits Alimento{
 
 	} 
 	
+	method excedeAltoImagen(){
+		return if (position > game.height()) 0 else 1
+	
+		
+	}
+	
 	override method esCosechada(){ 
 		super()
 		cosechada = 1

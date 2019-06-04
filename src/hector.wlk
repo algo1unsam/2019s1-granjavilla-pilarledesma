@@ -39,7 +39,7 @@ object hector {
 		plantas.forEach{planta => planta.cosechada(0)}
 		
 	}
-	
+
 	method cobrarOro() {oro = (self.plantasParaVender()).sum{planta => planta.oroQueAporta()}}
 	
 }
