@@ -85,18 +85,15 @@ class Tomaco inherits Alimento{
 	}
 	
 	override method esRegada() {
-		// if y != 10
-		game.removeVisual(self)
-		position = (self.position().up(1))
-		game.addVisualIn(self,position)
-
+		if (not position == game.height()) {
+			game.removeVisual(self)
+			position = (self.position().up(1))
+			game.addVisualIn(self,position)
+		}
+			else self.excedeAltoImagen()
 	} 
 	
-	method excedeAltoImagen(){
-		return if (position > game.height()) 0 else 1
-	
-		
-	}
+	method excedeAltoImagen() = (position = ( - game.height() + 1))
 	
 	override method esCosechada(){ 
 		super()
