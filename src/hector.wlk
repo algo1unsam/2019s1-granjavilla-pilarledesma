@@ -1,9 +1,12 @@
 import wollok.game.*
 import alimentos.*
+import mercados.*
 
 object hector {
 	
 	const plantas = []
+	
+	const mercados = [mercado1, mercado2]
 	
 	var property oro = 0
 	
@@ -16,6 +19,9 @@ object hector {
 	method encuentraPlanta()  = plantas.any{planta => planta.position() == self.position()} 
 	
 	method devuelvePlanta() = plantas.find{planta => planta.position() == self.position()}
+	
+	method estaEnMercado() = mercados.any{mercado => mercado.position() == self.position()} 
+
 		
 	method regar(){
 		
@@ -35,8 +41,11 @@ object hector {
 	method plantasParaVender() = plantas.filter{planta => planta.cosechada() == 1}
 	
 	method vender(){
-		self.cobrarOro()
-		plantas.forEach{planta => planta.cosechada(0)}
+		if (self.estaEnMercado()){
+			self.cobrarOro()
+			plantas.forEach{planta => planta.cosechada(0)}
+		}
+		
 		
 	}
 
