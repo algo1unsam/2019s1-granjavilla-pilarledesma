@@ -4,8 +4,6 @@ import wollok.game.*
 
 class Mercado {
 	
-	const mercados = [mercado1, mercado2]
-	
 	var position = game.at((0.randomToUp(10)), (0.randomToUp(10)))
 	
 	method image() = "market.png"
