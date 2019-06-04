@@ -32,7 +32,7 @@ object hector {
 		
 	}
 	
-	method plantasParaVender() = plantas.map{planta => planta.cosechada() == 1}
+	method plantasParaVender() = plantas.filter{planta => planta.cosechada() == 1}
 	
 	method vender(){
 		self.cobrarOro()
