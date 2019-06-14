@@ -1,0 +1,43 @@
+import hector.*
+import alimentos.*
+import wollok.game.*
+
+
+
+program farmvilleGame {
+
+	game.title("farmville")
+	game.height(10)
+	game.width(10)	
+	game.ground("ground.png")
+
+	game.addVisual(hector)
+	
+	
+	const tomaco = new Tomaco()
+	const maiz = new Maiz()
+	const trigo = new Trigo()
+	
+	keyboard.m().onPressDo { maiz.esSembrada()}
+	keyboard.t().onPressDo { trigo.esSembrada()}
+	keyboard.o().onPressDo { tomaco.esSembrada()}
+	
+	keyboard.r().onPressDo { hector.regar()}
+	keyboard.c().onPressDo { hector.cosechar()}
+	keyboard.v().onPressDo { hector.vender()}
+	
+	
+	
+	
+	keyboard.up().onPressDo { hector.position(hector.position().up(1)) }
+	keyboard.down().onPressDo { hector.position(hector.position().down(1)) }
+	keyboard.left().onPressDo { hector.position(hector.position().left(1)) }
+	keyboard.right().onPressDo { hector.position(hector.position().right(1)) }
+	
+	
+	game.errorReporter(hector)
+	
+	game.start()
+
+}
+
